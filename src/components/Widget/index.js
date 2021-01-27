@@ -75,5 +75,5 @@ Widget.Button = styled.button`
     background-color: gray;
     opacity: 0.7;
   }
-`
+`;
 export default Widget;

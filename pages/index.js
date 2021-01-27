@@ -28,8 +28,20 @@ export default function Home() {
   return (
     <QuizBackground backgroundImage={db.bg}>
       <Head>
-        <title>AiQuiz - Um Quiz sobre Inteligência Artificial</title>
         <link rel="icon" type="image/png" href="../static/favicon.png" key="title" />
+        <title>AiQuiz - Um Quiz sobre Inteligência Artificial</title>
+        <meta name="title" content="AiQuiz - Um Quiz sobre Inteligência Artificial" />
+        <meta name="description" content="Teste os seus conhecimentos sobre a história da Inteligência Artificial 🤖"></meta>
+        <meta property="og:type" content="website"/>
+        <meta property="og:url" content="https://ai-quiz.idcesares.vercel.app/"/>
+        <meta property="og:title" content="AiQuiz - Um Quiz sobre Inteligência Artificial"/>
+        <meta property="og:description" content="Teste os seus conhecimentos sobre a história da Inteligência Artificial 🤖"/>
+        <meta property="og:image" content={db.bg}/>
+        <meta property="twitter:card" content="summary_large_image"/>
+        <meta property="twitter:url" content="https://ai-quiz.idcesares.vercel.app/"/>
+        <meta property="twitter:title" content="AiQuiz - Um Quiz sobre Inteligência Artificial"/>
+        <meta property="twitter:description" content="Teste os seus conhecimentos sobre a história da Inteligência Artificial 🤖"/>
+        <meta property="twitter:image" content={db.bg}></meta>
       </Head>
       <QuizContainer>
         <QuizLogo />
