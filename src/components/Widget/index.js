@@ -47,33 +47,21 @@ Widget.Content = styled.div`
   }
 `;
 
-Widget.Input = styled.input`
-  padding: 10px;
-  font-size: 16px;
-  display:block;
-  width: 100%;
-  border-radius: 10px;
-`;
-
-Widget.Button = styled.button`
-  padding: 10px;
-  font-size: 16px;
-  font-weight: bold;
-  display:block;
-  margin: 0 auto;
-  background-color: ${({ theme }) => theme.colors.primary};
-  color: white;
-  margin-top: 10px;
-  border-radius: 10px;
-  transition: ease-in-out 0.1s;
-
-  &:hover {
-    background-color: ${({ theme }) => theme.colors.secondary};
-  }
-
-  &:disabled {
-    background-color: gray;
-    opacity: 0.7;
+Widget.Topic = styled.a`
+  outline: 0;
+  text-decoration: none;
+  color: ${({ theme }) => theme.colors.contrastText};
+  background-color: ${({ theme }) => `${theme.colors.primary}40`};
+  padding: 10px 15px;
+  margin-bottom: 8px;
+  cursor: pointer;
+  border-radius: ${({ theme }) => theme.borderRadius};
+  transition: .3s;
+  display: block;
+  
+  &:hover,
+  &:focus {
+    opacity: .5;
   }
 `;
 export default Widget;

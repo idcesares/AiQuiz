@@ -4,25 +4,28 @@
   "description": "Teste os seus conhecimentos sobre CSS e vamos ver quantos layouts você vai deixar de quebrar",
   "questions": [
     {
-      "image": "https://media.giphy.com/media/xUOxf3yDKCuwpOlT3i/giphy.gif",
-      "title": "Como fazer um seletor por id via CSS?",
-      "description": "Essa é pra aquecer",
-      "answer": 2,
+      "image": "https://media.giphy.com/media/3ohzdXcAHfULt5Wv3G/giphy-downsized.gif",
+      "title": "Quando o termo Inteligência Artificial foi utilizado pela primeira vez?",
+      "description": "",
+      "answer": 3,
       "alternatives": [
-        ".elemento",
-        "*elemento",
-        "#elemento",
-        "%elemento"
+        "1840",
+        "1926",
+        "1955",
+        "1999"
       ]
     },
     {
-      "image": "https://media.giphy.com/media/13FrpeVH09Zrb2/giphy.gif",
-      "title": "Como fazer um background gradiente com css?",
-      "description": "Faz tempo em haha",
+      "image": "https://media.giphy.com/media/xT9DPpf0zTqRASyzTi/giphy.gif",
+      "title": "Quem é considerado o pai da programação?",
+      "description": "",
       "answer": 0,
       "alternatives": [
-         "background: linear-gradient(#e66465, #9198e5);",
-         "background: gradient(#e66465, #9198e5);"
+         "Albert Einstein",
+         "Charles Babbage",
+         "Alan Turing",
+         "John von Neumann"
+
       ]
     }
   ],
