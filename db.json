@@ -2,7 +2,25 @@
   "bg": "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1920&q=1080",
   "title": "Um Quiz sobre Inteligência Artificial",
   "description": "Teste os seus conhecimentos sobre CSS e vamos ver quantos layouts você vai deixar de quebrar",
+  "loading": "https://media.giphy.com/media/xTkcEQACH24SMPxIQg/giphy.gif",
+  "quizImageResult": {
+    "bad":"https://media.giphy.com/media/AIo1UGpjYue0o/giphy.gif",
+    "moreOrLess":"https://media.giphy.com/media/26u4lhPy4UI6AHzGw/giphy.gif",
+    "amazing":"https://media.giphy.com/media/cnuNz0fTBIUGnx4F9T/giphy.gif"
+  },
   "questions": [
+    {
+      "image": "https://media.giphy.com/media/pw2fLKLW3mgw/giphy.gif",
+      "title": "O que é Inteligência Artificial?",
+      "description": "",
+      "answer": 3,
+      "alternatives": [
+        "É colocar a sua inteligência em um computador",
+        "É programar com a sua própria linguagem",
+        "É colocar mais memória em um computador",
+        "É fazer com que uma máquina seja inteligente"
+      ]
+    },
     {
       "image": "https://media.giphy.com/media/3ohzdXcAHfULt5Wv3G/giphy-downsized.gif",
       "title": "Quando o termo Inteligência Artificial foi utilizado pela primeira vez?",
@@ -11,21 +29,83 @@
       "alternatives": [
         "1840",
         "1926",
-        "1955",
-        "1999"
+        "1937",
+        "1955"
       ]
     },
     {
-      "image": "https://media.giphy.com/media/xT9DPpf0zTqRASyzTi/giphy.gif",
-      "title": "Quem é considerado o pai da programação?",
+      "image": "https://media.giphy.com/media/PnOscLx5uv0bMw7h3K/giphy-downsized.gif",
+      "title": "Quem foi o autor do termo Inteligência Artificial?",
+      "description": "",
+      "answer": 2,
+      "alternatives": [
+        "Marvin Minski",
+        "Alan Turing",
+        "John McCarthy",
+        "Elon Musk"
+      ]
+    },
+    {
+      "image": "https://media.giphy.com/media/AxVvjP7jSTbgjQyiqs/giphy.gif",
+      "title": "O que é o jogo da imitação?",
       "description": "",
       "answer": 0,
       "alternatives": [
-         "Albert Einstein",
-         "Charles Babbage",
-         "Alan Turing",
-         "John von Neumann"
+        "O nome original do Teste de Turing",
+        "Um apresentação especial quando um pesquisador imita outro pesquisador",
+        "Um dos jogos favoritos de cientistas de Inteligência Artificial",
+        "Um programa de computador que imita humanos"
+      ]
+    },
+    {
+      "image": "https://media.giphy.com/media/3ohzdUi5U8LBb4GD4s/giphy-downsized.gif",
+      "title": "O que foi o Inverno da Inteligência Artificial?",
+      "description": "",
+      "answer": 1,
+      "alternatives": [
+         "Um momento do ano em que pesquisadores de IA se encontravam em uma grande conferência",
+         "Um período do século passado em que o financiamento em empresas de IA caiu drasticamente",
+         "Uma competição de inverno para sistemas inteligentes",
+         "Uma oferta de hotéis durante o inverno"
 
+      ]
+    },
+    {
+      "image": "https://media.giphy.com/media/KazG5bdau9pIqS90oj/giphy-downsized.gif",
+      "title": "A área de IA que investiga métodos para facilitar comunicação entre pessoas e computadores é:",
+      "description": "",
+      "answer": 3,
+      "alternatives": [
+         "Robótica",
+         "Processamento Simbólico",
+         "Suporte de Decisões",
+         "Processamento de Linguagem Natural"
+
+      ]
+    },
+    {
+      "image": "https://media.giphy.com/media/8dYmJ6Buo3lYY/giphy.gif",
+      "title": "A prática de usar algoritmos para analisar dados, aprender com eles, e então fazer uma determinação ou predição sobre algo é",
+      "description": "",
+      "answer": 1,
+      "alternatives": [
+         "Aprendizado profundo",
+         "Aprendizado de Máquina",
+         "Visão Computacional",
+         "Processamento de sistemas naturais"
+
+      ]
+    },
+    {
+      "image": "https://media.giphy.com/media/R6OVaneBW44kga7zFG/giphy.gif",
+      "title": "Um software desenhado para facilitar um conversa entre um computador e um humano é um: ",
+      "description": "",
+      "answer": 2,
+      "alternatives": [
+         "Mensagem em tempo real",
+         "Resposta de voz interativa",
+         "Chatbot",
+         "Walkie Talkie"
       ]
     }
   ],
