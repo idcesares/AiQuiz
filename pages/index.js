@@ -20,7 +20,7 @@ export default function Home() {
   return (
     <QuizBackground backgroundImage={db.bg}>
       <Head>
-        <link rel="icon" type="image/png" href="../public/favicon.png" key="title" />
+        <link rel="icon" type="image/png" href="/favicon.png" key="title" />
         <title>AiQuiz - Um Quiz sobre Inteligência Artificial</title>
         <meta name="title" content="AiQuiz - Um Quiz sobre Inteligência Artificial" />
         <meta name="description" content="Teste os seus conhecimentos sobre a história da Inteligência Artificial 🤖"></meta>
