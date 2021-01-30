@@ -39,7 +39,8 @@ yarn dev
 - Mudança de gif dependendo do resultado;
 - Mudança para logo default logo nos outros quizzes;
 - Metatags gerais & para compartilhamento;
-- Animações gerais.
+- Animações gerais;
+- Lottie animations nos botões se certo ou errado.
 
 ## :computer: Projeto em produção
 

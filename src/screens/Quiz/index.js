@@ -10,6 +10,28 @@ import QuizContainer from '../../components/QuizContainer';
 import AlternativeForm from '../../components/AlternativeForm';
 import BackLinkArrow from '../../components/BackLinkArrow';
 import { motion } from 'framer-motion'
+import Lottie from 'react-lottie';
+import correctAnimation from '../../lotties/correct-animation.json'
+import wrongAnimation from '../../lotties/wrong-animation.json'
+
+const correctOptions = {
+  loop: false,
+  autoplay: true,
+  animationData: correctAnimation,
+  rendererSettings: {
+    preserveAspectRatio: "xMidYMid slice"
+  }
+};
+
+const wrongOptions = {
+  loop: false,
+  autoplay: true,
+  animationData: wrongAnimation,
+  rendererSettings: {
+    preserveAspectRatio: "viewBoxOnly"
+  }
+};
+
 
 function ResultWidget({ results }) {
   const router = useRouter()
@@ -126,9 +148,10 @@ function QuestionWidget({
  }) {
   const [selectedAlternative, setSelectedAlternative] = React.useState(undefined);
   const [isQuestionSubmitted, setIsQuestionSubmitted] = React.useState(false);
+  const [hasAlternativeSelected, setHasAlternativeSelected] = React.useState(false);
   const questionId = `question__${questionIndex}`;
   const isCorrect = selectedAlternative === question.answer;
-  const hasAlternativeSelected = selectedAlternative !== undefined;
+  const alternativeStatus = isCorrect ? 'SUCCESS' : 'ERROR';
   return (
     <Widget
       defaultLogo={db.defaultLogo}
@@ -171,12 +194,13 @@ function QuestionWidget({
             onSubmit();
             setIsQuestionSubmitted(false);
             setSelectedAlternative(undefined);
+            setHasAlternativeSelected(false);
           }, 2 * 1000)
         }}
         >
          {question.alternatives.map((alternative, alternativeIndex) => {
             const alternativeId = `alternative__${alternativeIndex}`;
-            const alternativeStatus = isCorrect ? 'SUCCESS' : 'ERROR';
+            
             const isSelected = selectedAlternative === alternativeIndex;
             return (
               <Widget.Topic
@@ -190,8 +214,11 @@ function QuestionWidget({
                   style={{ display: 'none' }}
                   id={alternativeId}
                   name={questionId}
-                  onChange={() => setSelectedAlternative(alternativeIndex)}
+                  onChange={() => {
+                    setHasAlternativeSelected(true);
+                    setSelectedAlternative(alternativeIndex);}}
                   type="radio"
+                  checked={selectedAlternative === alternativeIndex}
                 />
                 {alternative}
               </Widget.Topic>
@@ -203,8 +230,30 @@ function QuestionWidget({
             as={motion.button}
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
+            data-status={isQuestionSubmitted && alternativeStatus}
           >
-            Confirmar
+            {isCorrect && isQuestionSubmitted && 
+              <div>
+                <Lottie 
+                options={correctOptions}
+                  height={40}
+                  width={40}
+                />
+              </div>
+            }
+            {!isCorrect && isQuestionSubmitted && 
+              <div>
+                <Lottie 
+                options={wrongOptions}
+                  height={40}
+                  width={40}
+                />
+              </div>
+            }
+            {
+             !isQuestionSubmitted && "Confirmar"
+            }
+            
           </Button>
         </AlternativeForm>
       </Widget.Content>

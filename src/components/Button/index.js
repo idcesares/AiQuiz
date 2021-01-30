@@ -22,6 +22,13 @@ const Button = styled.button`
     background-color: gray;
     opacity: 0.7;
   }
+
+  &[data-status="SUCCESS"] {
+    background-color: ${({ theme }) => theme.colors.success};
+  }
+  &[data-status="ERROR"] {
+    background-color: ${({ theme }) => theme.colors.wrong};
+  }
 `;
 
 Button.propTypes = {
