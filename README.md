@@ -20,6 +20,12 @@
 
 - [Yarn](https://yarnpkg.com/)
 
+- [Framer Motion](https://www.framer.com/motion/)
+
+- [Lottie](https://lottiefiles.com/)
+
+- [Giphy](https://giphy.com/)
+
 
 ## :rocket: Executando o projeto
 
@@ -28,7 +34,12 @@
 yarn dev
 
 ```
- 
+
+## :sparkles: + Features
+- Mudança de gif dependendo do resultado;
+- Mudança para logo default logo nos outros quizzes;
+- Metatags gerais & para compartilhamento;
+- Animações gerais.
 
 ## :computer: Projeto em produção
 

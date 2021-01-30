@@ -1,6 +1,4 @@
 import React from 'react';
-import styled from 'styled-components';
-import Head from 'next/head';
 import { useRouter } from 'next/router';
 
 import db from '../db.json';
@@ -12,32 +10,49 @@ import GitHubCorner from '../src/components/GitHubCorner';
 import Input from '../src/components/Input';
 import Button from '../src/components/Button';
 import QuizContainer from '../src/components/QuizContainer';
+import Link from '../src/components/Link';
+import { motion } from 'framer-motion'
 
 export default function Home() {
   const router = useRouter();
   const [name, setName] = React.useState('');
 
   return (
-    <QuizBackground backgroundImage={db.bg}>
-      <Head>
-        <link rel="icon" type="image/png" href="/favicon.png" key="title" />
-        <title>AiQuiz - Um Quiz sobre Inteligência Artificial</title>
-        <meta name="title" content="AiQuiz - Um Quiz sobre Inteligência Artificial" />
-        <meta name="description" content="Teste os seus conhecimentos sobre a história da Inteligência Artificial 🤖"></meta>
-        <meta property="og:type" content="website"/>
-        <meta property="og:url" content="https://ai-quiz.idcesares.vercel.app/"/>
-        <meta property="og:title" content="AiQuiz - Um Quiz sobre Inteligência Artificial"/>
-        <meta property="og:description" content="Teste os seus conhecimentos sobre a história da Inteligência Artificial 🤖"/>
-        <meta property="og:image" content={db.bg}/>
-        <meta property="twitter:card" content="summary_large_image"/>
-        <meta property="twitter:url" content="https://ai-quiz.idcesares.vercel.app/"/>
-        <meta property="twitter:title" content="AiQuiz - Um Quiz sobre Inteligência Artificial"/>
-        <meta property="twitter:description" content="Teste os seus conhecimentos sobre a história da Inteligência Artificial 🤖"/>
-        <meta property="twitter:image" content={db.bg}></meta>
-      </Head>
+    <QuizBackground 
+      backgroundImage={db.bg}
+      as={motion.section}
+      transition={{ duration: 0.3 }}
+      variants={{
+        show: { opacity: 1 },
+        hidden: { opacity: 0 },
+      }}
+      initial="hidden"
+      animate="show"
+    >
       <QuizContainer>
-        <QuizLogo />
-        <Widget>
+        <QuizLogo 
+          defaultLogo={db.defaultLogo}
+          as={motion.section}
+            initial={{ scale: 0 }}
+            animate={{ rotate: 360, scale: 1 }}
+            transition={{
+              type: "spring",
+              stiffness: 260,
+              damping: 20
+            }}
+        />
+        
+        <Widget
+          as={motion.section}
+          initial={{ scale: 0 }}
+          animate={{ rotate: 360, scale: 1 }}
+          transition={{
+            type: "spring",
+            stiffness: 260,
+            damping: 20,
+            delay: 0.3
+          }}
+        >
           <Widget.Header>
             <h1>{db.title}</h1>
           </Widget.Header>
@@ -54,21 +69,60 @@ export default function Home() {
                 placeholder="Digite seu nome"
                 value={name}
                 />
-              <Button type="submit" disabled={name.length === 0}>
+              <Button 
+                type="submit" 
+                disabled={name.length === 0}
+                as={motion.button}
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}
+              >
                 {`Jogar como ${name}`}
               </Button>
             </form>
           </Widget.Content>
         </Widget>
 
-        <Widget>
+        <Widget
+          as={motion.section}
+          initial={{ scale: 0 }}
+          animate={{ rotate: 360, scale: 1 }}
+          transition={{
+            type: "spring",
+            stiffness: 260,
+            damping: 20,
+            delay: 0.6
+          }}
+        >
           <Widget.Content>
             <h1>Quizes da Galera</h1>
-
-            <p>lorem ipsum dolor sit amet...</p>
+            <ul>
+            {db.external.map((linkExterno) => {
+              let [projectName, githubUser] = new URL(linkExterno).host.split(".")
+              return (
+                <li key={linkExterno}>
+                  <Widget.Topic
+                  as={Link}
+                  href={`/quiz/${projectName}___${githubUser}`}
+                  >
+                    {`${githubUser}/${projectName}`}
+                  </Widget.Topic>
+                </li>
+              );
+            })}
+            </ul>
           </Widget.Content>
         </Widget>
-        <Footer />
+        <Footer
+        as={motion.footer}
+        initial={{ scale: 0 }}
+        animate={{ rotate: 360, scale: 1 }}
+        transition={{
+          type: "spring",
+          stiffness: 260,
+          damping: 20,
+          delay: 0.9
+        }} 
+        />
       </QuizContainer>
       <GitHubCorner projectUrl="https://github.com/idcesares" />
     </QuizBackground>

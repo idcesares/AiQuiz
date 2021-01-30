@@ -1,18 +1,33 @@
 import React from 'react';
+import { useRouter } from 'next/router'
 
-import db from '../db.json';
-import Widget from '../src/components/Widget';
-import QuizLogo from '../src/components/QuizLogo';
-import QuizBackground from '../src/components/QuizBackground';
-import Button from '../src/components/Button';
-import QuizContainer from '../src/components/QuizContainer';
-import AlternativeForm from '../src/components/AlternativeForm';
+import db from '../../../db.json'
+import Widget from '../../components/Widget';
+import QuizLogo from '../../components/QuizLogo';
+import QuizBackground from '../../components/QuizBackground';
+import Button from '../../components/Button';
+import QuizContainer from '../../components/QuizContainer';
+import AlternativeForm from '../../components/AlternativeForm';
+import BackLinkArrow from '../../components/BackLinkArrow';
+import { motion } from 'framer-motion'
 
 function ResultWidget({ results }) {
+  const router = useRouter()
   const totalQuestionsCorrect = results.filter((x) => x).length;
   const percentageCorrect = (100 * totalQuestionsCorrect)/results.length;
+  const playerName = router.query.name;
   return (
-    <Widget>
+    <Widget
+      defaultLogo={db.defaultLogo}
+      as={motion.section}
+      initial={{ scale: 0 }}
+      animate={{ rotate: 0, scale: 1 }}
+      transition={{
+        type: "spring",
+        stiffness: 260,
+        damping: 20
+      }}
+    >
       <Widget.Header>
         <h3>Resultado:</h3>
       </Widget.Header>
@@ -33,15 +48,30 @@ function ResultWidget({ results }) {
           loading="lazy" />}
       <Widget.Content>
         <p>
+          Olá, {playerName}! <br/>
           Você acertou
           {' '}
           {totalQuestionsCorrect}
           {' '}
-          perguntas
+          perguntas de 
+          {' '}
+          {results.length}
+          {' '}
         </p>
         <ul>
           {results.map((result, index) => (
-            <li key={`result__${index}`}>
+            <Widget.Topic.Result 
+              key={`result__${index}`}
+              as={motion.section}
+              initial={{ scale: 0 }}
+              animate={{ rotate: 0, scale: 1 }}
+              transition={{
+                type: "spring",
+                stiffness: 260,
+                damping: 20,
+                delay: `0.${index}`
+              }}
+            >
               Pergunta
               {' '}
               {index + 1}
@@ -49,7 +79,7 @@ function ResultWidget({ results }) {
               {result === true
                 ? 'Acertou'
                 : 'Errou'}
-            </li>
+            </Widget.Topic.Result>
           ))}
         </ul>
       </Widget.Content>
@@ -60,7 +90,17 @@ function ResultWidget({ results }) {
 
 function LoadingWidget() {
   return (
-    <Widget>
+    <Widget
+      defaultLogo={db.defaultLogo}
+      as={motion.section}
+      initial={{ scale: 0 }}
+      animate={{ rotate: 0, scale: 1 }}
+      transition={{
+        type: "spring",
+        stiffness: 260,
+        damping: 20
+      }}
+      >
       <Widget.Header>
         <h3>Carregando...</h3>
       </Widget.Header>
@@ -90,15 +130,26 @@ function QuestionWidget({
   const isCorrect = selectedAlternative === question.answer;
   const hasAlternativeSelected = selectedAlternative !== undefined;
   return (
-    <Widget>
+    <Widget
+      defaultLogo={db.defaultLogo}
+      as={motion.section}
+      initial={{ scale: 0 }}
+      animate={{ rotate: 0, scale: 1 }}
+      transition={{
+        type: "spring",
+        stiffness: 260,
+        damping: 20
+      }}
+    >
       <Widget.Header>
+        <BackLinkArrow href="/" />
         <h3>{`Pergunta ${questionIndex + 1} de ${totalQuestions}`}</h3>
       </Widget.Header>
       <img
         alt="Descrição"
         style={{
           width: '100%',
-          height: '150px',
+          height: '200px',
           objectFit: 'cover',
         }}
         src={question.image}
@@ -120,7 +171,7 @@ function QuestionWidget({
             onSubmit();
             setIsQuestionSubmitted(false);
             setSelectedAlternative(undefined);
-          }, 1000)
+          }, 2 * 1000)
         }}
         >
          {question.alternatives.map((alternative, alternativeIndex) => {
@@ -146,7 +197,13 @@ function QuestionWidget({
               </Widget.Topic>
             );
           })}
-          <Button type="submit" disabled={!hasAlternativeSelected}>
+          <Button 
+            type="submit" 
+            disabled={!hasAlternativeSelected}
+            as={motion.button}
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
+          >
             Confirmar
           </Button>
         </AlternativeForm>
@@ -161,13 +218,13 @@ const screenStates = {
   RESULT: 'RESULT'
 };
 
-export default function QuizPage() {
+export default function QuizScreen({ externalQuestions, externalBg, defaultLogo }) {
   const [screenState, setScreenState] = React.useState(screenStates.LOADING);
   const [results, setResults] = React.useState([])
-  const totalQuestions = db.questions.length;
+  const totalQuestions = externalQuestions.length;
   const [currentQuestion, setCurrentQuestion] = React.useState(0);
   const questionIndex = currentQuestion;
-  const question = db.questions[questionIndex];
+  const question = externalQuestions[questionIndex];
 
   function addResult(result) {
     setResults([
@@ -179,7 +236,7 @@ export default function QuizPage() {
   React.useEffect(() => {
     setTimeout(() => {
       setScreenState(screenStates.QUIZ);
-    }, 1 * 1000)
+    }, 1500)
   }, []);
   
   function handleSubmitQuiz() {
@@ -192,9 +249,9 @@ export default function QuizPage() {
   }
   
   return (
-    <QuizBackground backgroundImage={db.bg}>
+    <QuizBackground backgroundImage={ externalBg }>
       <QuizContainer>
-        <QuizLogo />
+        <QuizLogo defaultLogo={defaultLogo} />
         {screenState === screenStates.QUIZ && (
           <QuestionWidget 
           question={question}

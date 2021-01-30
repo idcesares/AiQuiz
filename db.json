@@ -3,6 +3,8 @@
   "title": "Um Quiz sobre Inteligência Artificial",
   "description": "Teste os seus conhecimentos sobre CSS e vamos ver quantos layouts você vai deixar de quebrar",
   "loading": "https://media.giphy.com/media/xTkcEQACH24SMPxIQg/giphy.gif",
+  "defaultLogo": "/logo.svg",
+  "aluraLogo": "/alura-logo.svg",
   "quizImageResult": {
     "bad":"https://media.giphy.com/media/AIo1UGpjYue0o/giphy.gif",
     "moreOrLess":"https://media.giphy.com/media/26u4lhPy4UI6AHzGw/giphy.gif",
@@ -110,7 +112,8 @@
     }
   ],
   "external": [
-    ""
+    "https://aluraquiz-css.omariosouto.vercel.app/",
+    "https://aluraquiz-devsoutinho.omariosouto.vercel.app/"
   ],
   "theme": {
     "colors": {

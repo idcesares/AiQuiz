@@ -1,15 +1,13 @@
 import styled from 'styled-components';
 import React from 'react';
 
-const Logo = ({ className }) => {
-  return (
-    <img className={className} src="/logo.svg" alt="Logo AI Quiz" />
-  );
-}
-
-const QuizLogo = styled(Logo)`
+const Logo = styled.img`
   margin: 0 auto;
   width: 100%;
 `
 
-export default QuizLogo;
+export default function QuizLogo({ className, defaultLogo }) {
+  return (
+    <Logo className={className} src={defaultLogo} alt="Logo AI Quiz" />
+  );
+};
