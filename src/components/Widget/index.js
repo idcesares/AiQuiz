@@ -81,15 +81,19 @@ Widget.Topic.Result = styled.li`
   background-color: ${({ theme }) => `${theme.colors.primary}40`};
   padding: 10px 15px;
   margin-bottom: 8px;
-  pointer-events: none;
   border-radius: ${({ theme }) => theme.borderRadius};
   transition: .3s;
   display: block;
   overflow: hidden;
-  
   &:hover,
   &:focus {
     opacity: .5;
+  }
+  &[data-status="true"] {
+    background-color: ${({ theme }) => theme.colors.success};
+  }
+  &[data-status="false"] {
+    background-color: ${({ theme }) => theme.colors.wrong};
   }
 `
 export default Widget;

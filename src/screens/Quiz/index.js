@@ -9,11 +9,12 @@ import Button from '../../components/Button';
 import QuizContainer from '../../components/QuizContainer';
 import AlternativeForm from '../../components/AlternativeForm';
 import BackLinkArrow from '../../components/BackLinkArrow';
-import { motion } from 'framer-motion'
+import { motion } from 'framer-motion';
 import Lottie from 'react-lottie';
-import correctAnimation from '../../lotties/correct-animation.json'
-import wrongAnimation from '../../lotties/wrong-animation.json'
-import Link from '../../components/Link'
+import correctAnimation from '../../lotties/correct-animation.json';
+import wrongAnimation from '../../lotties/wrong-animation.json';
+import Link from '../../components/Link';
+import SocialShare from '../../components/SocialShare';
 
 const correctOptions = {
   loop: false,
@@ -29,7 +30,7 @@ const wrongOptions = {
   autoplay: true,
   animationData: wrongAnimation,
   rendererSettings: {
-    preserveAspectRatio: "viewBoxOnly"
+    preserveAspectRatio: "xMidYMid slice"
   }
 };
 
@@ -85,7 +86,7 @@ function ResultWidget({ results }) {
           {results.map((result, index) => (
             <Widget.Topic.Result 
               key={`result__${index}`}
-              as={motion.section}
+              as={motion.div}
               initial={{ scale: 0 }}
               animate={{ rotate: 0, scale: 1 }}
               transition={{
@@ -94,23 +95,38 @@ function ResultWidget({ results }) {
                 damping: 20,
                 delay: `0.${index}`
               }}
+              data-status={result}
             >
               Pergunta
               {' '}
               {index + 1}
               {': '}
               {result === true
-                ? 'Acertou'
-                : 'Errou'}
+                ? <div>
+                    <Lottie 
+                      options={correctOptions}
+                      height={40}
+                      width={40}
+                    />
+                  </div>
+                : <div>
+                    <Lottie 
+                      options={wrongOptions}
+                      height={40}
+                      width={40}
+                    />
+                  </div>}
             </Widget.Topic.Result>
           ))}
         </ul>
-        <Button> 
+        <SocialShare />
+        <Button type="button"> 
           <Link 
           href="/"
           style={{ 
             textDecoration: 'none', 
-            color: 'white' 
+            color: 'white',
+            width: '100%'
           }}
           >
             Tentar novamente
@@ -247,7 +263,7 @@ function QuestionWidget({
             {isCorrect && isQuestionSubmitted && 
               <div>
                 <Lottie 
-                options={correctOptions}
+                  options={correctOptions}
                   height={40}
                   width={40}
                 />
