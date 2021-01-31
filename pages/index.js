@@ -76,7 +76,7 @@ export default function Home() {
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
               >
-                {`Jogar como ${name}`}
+                {`Jogar como: ${name}`}
               </Button>
             </form>
           </Widget.Content>

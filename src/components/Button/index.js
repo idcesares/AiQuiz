@@ -16,11 +16,14 @@ const Button = styled.button`
 
   &:hover {
     background-color: ${({ theme }) => theme.colors.secondary};
+    cursor: pointer;
   }
 
   &:disabled {
     background-color: gray;
     opacity: 0.7;
+    cursor: not-allowed;
+
   }
 
   &[data-status="SUCCESS"] {

@@ -13,6 +13,7 @@ import { motion } from 'framer-motion'
 import Lottie from 'react-lottie';
 import correctAnimation from '../../lotties/correct-animation.json'
 import wrongAnimation from '../../lotties/wrong-animation.json'
+import Link from '../../components/Link'
 
 const correctOptions = {
   loop: false,
@@ -104,6 +105,17 @@ function ResultWidget({ results }) {
             </Widget.Topic.Result>
           ))}
         </ul>
+        <Button> 
+          <Link 
+          href="/"
+          style={{ 
+            textDecoration: 'none', 
+            color: 'white' 
+          }}
+          >
+            Tentar novamente
+          </Link>
+        </Button>
       </Widget.Content>
     </Widget>
   );

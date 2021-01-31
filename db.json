@@ -112,8 +112,10 @@
     }
   ],
   "external": [
-    "https://aluraquiz-css.omariosouto.vercel.app/",
-    "https://aluraquiz-devsoutinho.omariosouto.vercel.app/"
+    "https://imersao-react-alura.tamirfaria.vercel.app/",
+    "https://lotr-quiz.filipe1309.vercel.app/",
+    "https://doctor-who-quiz.emanuelpna.vercel.app/",
+    "https://aluraquiz-coffee.leonardot07.vercel.app/"
   ],
   "theme": {
     "colors": {
