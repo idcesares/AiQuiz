@@ -1,4 +1,4 @@
-#<div  align="center">
+<div  align="center">
 
 <img src="./public/logo.svg" width="200"/>
 
@@ -7,10 +7,12 @@
 
 ## :information_source: Sobre
 
-> Um projeto desenvolvido durante a semana Imersão React Nextjs da Alura onde você pode testar os seus conhecimentos sobre a história da Inteligência Artificial 🤖
+> Um projeto desenvolvido durante a semana Imersão React Nextjs da Alura onde você pode testar os seus conhecimentos sobre a história da Inteligência Artificial 🤖.
  
 
-## :hammer_and_wrench: Ferramentas
+## :hammer_and_wrench: Tech Stack
+
+- [Reactjs](https://pt-br.reactjs.org/)
 
 - [Nextjs](https://nextjs.org/)
 
@@ -40,7 +42,10 @@ yarn dev
 - Mudança para logo default logo nos outros quizzes;
 - Metatags gerais & para compartilhamento;
 - Animações gerais;
-- Lottie animations nos botões se certo ou errado.
+- Lottie animations nos botões se certo ou errado;
+- Animações nos tópicos de resultado;
+- Botões de compartilhamento nas redes sociais;
+- Botão de tentar novamente.
 
 ## :computer: Projeto em produção
 
